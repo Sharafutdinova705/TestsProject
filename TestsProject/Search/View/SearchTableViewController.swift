@@ -16,7 +16,7 @@ class SearchTableViewController: UITableViewController, SearchViewInput {
     let searchController = UISearchController(searchResultsController: nil)
     var settings: Settings = Settings(typeOfMedia: "music", countOfResult: 100, kindOfDevice: "iphone")
     var foundedItems: [FoundedItem] = []
-    private var searchBarIsEmpty: Bool {
+    var searchBarIsEmpty: Bool {
         guard let text = searchController.searchBar.text else { return false }
         return text.isEmpty
     }
@@ -37,6 +37,7 @@ class SearchTableViewController: UITableViewController, SearchViewInput {
     
     //MARK: - Search
     
+    /// настройки searchController
     func setupSearchController() {
         
         searchController.searchResultsUpdater = self
@@ -45,9 +46,7 @@ class SearchTableViewController: UITableViewController, SearchViewInput {
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }
-
-
-
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -100,6 +99,9 @@ class SearchTableViewController: UITableViewController, SearchViewInput {
 
 extension SearchTableViewController: UISearchResultsUpdating {
     
+    /// срабатывает при нажатии на поиск или при введении букв
+    ///
+    /// - Parameter searchController: searchController
     func updateSearchResults(for searchController: UISearchController) {
         
         output.obtainItems()

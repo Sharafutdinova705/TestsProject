@@ -10,7 +10,6 @@ import UIKit
 
 class SearchRouter: SearchRouterInput {
     
-    var output: SearchRouterOutput!
     var view: UIViewController!
     
     func showSettings() {

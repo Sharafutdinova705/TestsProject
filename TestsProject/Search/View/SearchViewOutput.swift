@@ -10,7 +10,9 @@ import Foundation
 
 protocol SearchViewOutput: AnyObject {
     
+    /// Показать настройки
     func showSettings()
     
-    func obtainItems() 
+    /// Получить настройки
+    func obtainItems()
 }

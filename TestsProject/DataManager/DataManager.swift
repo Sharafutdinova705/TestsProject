@@ -13,9 +13,6 @@ class DataManager: DataManagerProtocol {
     
     fileprivate lazy var mainRealm: Realm = try! Realm(configuration: .defaultConfiguration)
     
-    /// Сохранить модель в Realm, обновить при изменении
-    ///
-    /// - Parameter item: модель, которую нужно сохранить
     func updateItem(item: Object) {
         
         try! mainRealm.write {

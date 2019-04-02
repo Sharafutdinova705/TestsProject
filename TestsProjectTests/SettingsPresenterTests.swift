@@ -33,9 +33,10 @@ class SettingsPresenterTests: XCTestCase {
         XCTAssertTrue((presenter.interactor as! SettingsInteractorMock).isobtainSettings)
     }
     
-//    func testupdateSettingsInVC() {
-//        presenter.view = ViewForSettingsInteractorMock()
-//        presenter.updateSettingsInVC(settings: Settings(typeOfMedia: "music", countOfResult: 100, kindOfDevice: "iphone"))
-//        XCTAssertTrue((presenter.view as! ViewForSettingsInteractorMock).isupdateSettingsInVC)
-//    }
+    func testupdateSettingsInVC() {
+        presenter.view = ViewForSettingsInteractorMock()
+        presenter.updateSettingsInVC(settings: Settings(typeOfMedia: "music", countOfResult: 100, kindOfDevice: "iphone"))
+        XCTAssertTrue((presenter.view as! ViewForSettingsInteractorMock).isupdateSettingsInVC)
+    }
+    
 }

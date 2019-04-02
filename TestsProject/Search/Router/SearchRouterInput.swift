@@ -10,5 +10,6 @@ import Foundation
 
 protocol SearchRouterInput: AnyObject {
     
+    /// Показать настройки
     func showSettings()
 }

@@ -10,5 +10,8 @@ import Foundation
 
 protocol SearchViewInput: AnyObject {
     
+    /// обновление настроек
+    ///
+    /// - Parameter settings: настройки
     func updateSettings(settings: Settings)
 }

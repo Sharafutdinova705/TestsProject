@@ -10,5 +10,8 @@ import Foundation
 
 protocol SearchInteractorOutput: AnyObject {
     
-    func updateSettings(settings: Settings) 
+    /// Сохранить/ обновить настройки
+    ///
+    /// - Parameter settings: настройки
+    func updateSettings(settings: Settings)
 }

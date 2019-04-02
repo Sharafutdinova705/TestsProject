@@ -32,6 +32,10 @@ struct FoundedItem {
 }
 
 extension FoundedItem: JSONDecodable {
+    
+    /// Инициализация с помощью json
+    ///
+    /// - Parameter JSON: json в виде словаря
     init?(JSON: [String:AnyObject]) {
         
         if let titleLabel = JSON["trackName"] as? String {

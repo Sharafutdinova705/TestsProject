@@ -8,6 +8,9 @@
 
 import Foundation
 
+/// Enum с одним кейсом состоящим из базового url и пути
+///
+/// - Current: кейсом состоящим из базового url и пути
 enum RequestType: FinalURLPoint {
     
     case Current(term: String, settings: Settings)
@@ -35,15 +38,26 @@ enum RequestType: FinalURLPoint {
 
 class APIManager: APIManagerProtocol {
     
+    /// конфигурация сессии
     let sessionConfiguration: URLSessionConfiguration
+    /// Сессия строящаяся по конфигурации
     lazy var session: URLSession = {
         return URLSession(configuration: self.sessionConfiguration)
     } ()
     
+    /// инициализация конфигурации
+    ///
+    /// - Parameter sessionConfiguration: принимает конфигурацию
     init(sessionConfiguration: URLSessionConfiguration) {
         self.sessionConfiguration = sessionConfiguration
     }
     
+    /// Получение результата
+    ///
+    /// - Parameters:
+    ///   - term: то, что ищем
+    ///   - settings: Settings, по которым ищем
+    ///   - completionHandler: completionHandler
     func fetchResultWith(term: String, settings: Settings, completionHandler: @escaping (APIResult<FoundedItem>) -> Void) {
         
         let request = RequestType.Current(term: term, settings: settings).request

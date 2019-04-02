@@ -10,5 +10,6 @@ import Foundation
 
 protocol SearchInteractorInput: AnyObject {
     
-    func obtainItems() 
+    /// Получить настройки
+    func obtainItems()
 }

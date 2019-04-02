@@ -9,12 +9,22 @@
 import Foundation
 @testable import TestsProject
 
-class SettingsPresenterMock: SettingsInteractorOutput {
-    
+class SettingsPresenterMock: SettingsInteractorOutput, SettingsViewOutput {
+
     var isupdateSettingsInVC = false
+    var issaveSettings = false
+    var isobtainSettings = false
     
     func updateSettingsInVC(settings: Settings) {
         isupdateSettingsInVC = true
+    }
+    
+    func saveSettings(settings: Settings) {
+        issaveSettings = true
+    }
+    
+    func obtainSettings() {
+        isobtainSettings  = true
     }
 }
 

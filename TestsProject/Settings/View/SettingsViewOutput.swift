@@ -10,7 +10,11 @@ import Foundation
 
 protocol SettingsViewOutput: AnyObject {
     
+    /// Сохранение настроек в бд
+    ///
+    /// - Parameter settings: настройки
     func saveSettings(settings: Settings)
     
-    func obtainSettings() 
+    /// получение настроек
+    func obtainSettings()
 }

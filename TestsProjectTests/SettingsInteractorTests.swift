@@ -28,6 +28,14 @@ class SettingsInteractorTests: XCTestCase {
     }
     
     func testobtainSettings() {
+        interactor.dataManager = DataManagerMock()
+        interactor.output = SettingsPresenterMock()
+        interactor.obtainSettings()
+        XCTAssertTrue((interactor.output as! SettingsPresenterMock).isupdateSettingsInVC)
+    }
+    
+    func testSecondobtainSettings() {
+        interactor.dataManager = SecondDataManagerMock()
         interactor.output = SettingsPresenterMock()
         interactor.obtainSettings()
         XCTAssertTrue((interactor.output as! SettingsPresenterMock).isupdateSettingsInVC)

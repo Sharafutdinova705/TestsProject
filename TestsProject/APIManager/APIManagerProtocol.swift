@@ -37,6 +37,12 @@ protocol APIManagerProtocol {
 
 extension APIManagerProtocol {
     
+    /// Дефолтная реализация 
+    ///
+    /// - Parameters:
+    ///   - request: запрос
+    ///   - completionHandler: completionHandler
+    /// - Returns: возвращает dataTask
     func JSONTaskWith(request: URLRequest, completionHandler: @escaping JSONcompletionHandler) -> JSONTask {
         
         let dataTask = session.dataTask(with: request) { (data, response, error) in
@@ -64,6 +70,12 @@ extension APIManagerProtocol {
         return dataTask
     }
     
+    /// Получение результата
+    ///
+    /// - Parameters:
+    ///   - request: запрос
+    ///   - parse: парсинг json в какой-то определенный тип
+    ///   - completionHandler: completionHandler
     func fetch<T>(request: URLRequest, parse: @escaping ([String: AnyObject]) -> [T]?, completionHandler: @escaping (APIResult<T>) -> Void) {
         
         let dataTask = JSONTaskWith(request: request) { (json, response, error) in

@@ -25,6 +25,7 @@ class SettingsViewController: UIViewController, SettingsViewInput {
     }
     
     func updateSettingsInVC(settings: Settings) {
+        
         self.settings = settings
         
         switch settings.typeOfMedia {
@@ -56,6 +57,7 @@ class SettingsViewController: UIViewController, SettingsViewInput {
         }
     }
     
+    /// обновление настроек
     func updateSettings() {
         
         updateTypeOfMedia()
@@ -63,6 +65,7 @@ class SettingsViewController: UIViewController, SettingsViewInput {
         updateDeviceKind()
     }
     
+    /// обновление типа медии
     func updateTypeOfMedia() {
         
         switch typeOfMediaSegmentedControl.selectedSegmentIndex {
@@ -83,6 +86,7 @@ class SettingsViewController: UIViewController, SettingsViewInput {
         }
     }
     
+    /// обновление лимита
     func updateLimit() {
         
         if Int(countOfResultTextField.text!) != nil {
@@ -97,6 +101,7 @@ class SettingsViewController: UIViewController, SettingsViewInput {
         }
     }
     
+    /// обновление типа девайса
     func updateDeviceKind() {
         
         switch kindOfDeviceSegmentedControl.selectedSegmentIndex {
@@ -120,8 +125,4 @@ class SettingsViewController: UIViewController, SettingsViewInput {
         
         dismiss(animated: true, completion: nil)
     }
-    
-    //MARK: - SettingsViewInput
-    
-    
 }

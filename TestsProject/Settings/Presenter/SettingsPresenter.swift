@@ -10,7 +10,7 @@ import Foundation
 
 class SettingsPresenter: SettingsViewOutput, SettingsInteractorOutput {
     
-    weak var view: SettingsViewInput!
+    var view: SettingsViewInput!
     var interactor: SettingsInteractorInput!
     
     //MARK: - SettingsViewOutput

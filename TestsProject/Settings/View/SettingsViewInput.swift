@@ -10,5 +10,8 @@ import Foundation
 
 protocol SettingsViewInput: AnyObject {
     
+    /// Обновление настроек во вьюконтроллере
+    ///
+    /// - Parameter settings: <#settings description#>
     func updateSettingsInVC(settings: Settings)
 }

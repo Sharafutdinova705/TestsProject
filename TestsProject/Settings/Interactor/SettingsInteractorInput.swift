@@ -10,7 +10,11 @@ import Foundation
 
 protocol SettingsInteractorInput: AnyObject {
     
+    /// сохранить/обновить настройки в бд
+    ///
+    /// - Parameter settings: настройки
     func saveSettings(settings: Settings)
     
+    /// получить настройки из бд
     func obtainSettings()
 }
