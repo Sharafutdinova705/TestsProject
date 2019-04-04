@@ -25,15 +25,14 @@ class TestsProjectUITests: XCTestCase {
     func testExample() {
         
         let app = XCUIApplication()
-        app.tables["Empty list"].swipeDown()
-        
         let searchSearchField = app.searchFields["Search"]
+        
+        app.tables["Empty list"].swipeDown()
         searchSearchField.tap()
-        
-        let cancelButton = app.buttons["Cancel"]
-        cancelButton.tap()
-        
+        searchSearchField.typeText("Tumblr")
+        app.tables.staticTexts.allElementsBoundByIndex.first?.tap()
+        app.buttons["Done"].tap()
+        app.buttons["Cancel"].tap()
         XCTAssertFalse(searchSearchField.isSelected)
     }
-
 }
