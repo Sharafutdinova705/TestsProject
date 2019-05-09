@@ -12,6 +12,6 @@ protocol SettingsViewInput: AnyObject {
     
     /// Обновление настроек во вьюконтроллере
     ///
-    /// - Parameter settings: <#settings description#>
+    /// - Parameter settings: настройки
     func updateSettingsInVC(settings: Settings)
 }

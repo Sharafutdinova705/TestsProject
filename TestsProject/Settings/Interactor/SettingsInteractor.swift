@@ -33,7 +33,7 @@ class SettingsInteractor: SettingsInteractorInput {
 
             settings = Settings(typeOfMedia: settingsModel.typeOfMedia, countOfResult: settingsModel.countOfResult, kindOfDevice: settingsModel.kindOfDevice)
         } else {
-            settings = Settings(typeOfMedia: "music", countOfResult: 100, kindOfDevice: "iphone")
+            settings = Settings(typeOfMedia: TypeOfMedia.music, countOfResult: NumberConstants.hundred, kindOfDevice: Device.iphone.lowercased())
         }
         
         output.updateSettingsInVC(settings: settings)

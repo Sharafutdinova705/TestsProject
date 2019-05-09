@@ -23,7 +23,7 @@ class DataManagerTests: XCTestCase {
 
     func testDManager() {
         let settings = SettingsModel()
-        settings.kindOfDevice = ""
+        settings.kindOfDevice = AllConstants.empty
         dataManager.updateItem(item: settings)
         XCTAssertTrue(dataManager.obtainItems() != nil)
     }

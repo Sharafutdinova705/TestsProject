@@ -22,7 +22,7 @@ class APIManagerTests: XCTestCase {
     }
 
     func testUrl() {
-        apiManager.fetchResultWith(term: "qwerty", settings: Settings(typeOfMedia: "music", countOfResult: 100, kindOfDevice: "iphone")) { (result) in
+        apiManager.fetchResultWith(term: "qwerty", settings: Settings(typeOfMedia: TypeOfMedia.music, countOfResult: NumberConstants.hundred, kindOfDevice: Device.iphone.lowercased())) { (result) in
 
             
             XCTAssertNotNil(result)

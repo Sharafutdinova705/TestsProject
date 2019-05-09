@@ -11,14 +11,14 @@ import Foundation
 
 class SettingsInteractorMock: SettingsInteractorInput {
     
-    var issaveSettings = false
-    var isobtainSettings = false
+    var isSaveSettings = false
+    var isObtainSettings = false
     
     func saveSettings(settings: Settings) {
-        issaveSettings = true
+        isSaveSettings = true
     }
     
     func obtainSettings() {
-        isobtainSettings = true
+        isObtainSettings = true
     }
 }

@@ -21,7 +21,7 @@ class SearchInteractor: SearchInteractorInput {
             settings = Settings(typeOfMedia: settingsModel.typeOfMedia, countOfResult: settingsModel.countOfResult, kindOfDevice: settingsModel.kindOfDevice)
             output.updateSettings(settings: settings)
         } else {
-            settings = Settings(typeOfMedia: "music", countOfResult: 100, kindOfDevice: "iphone")
+            settings = Settings(typeOfMedia: TypeOfMedia.music, countOfResult: NumberConstants.hundred, kindOfDevice: Device.iphone.lowercased())
             output.updateSettings(settings: settings)
         }
     }

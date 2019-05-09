@@ -11,9 +11,9 @@ import Foundation
 
 class SearchRouterMock: SearchRouterInput {
     
-    var isshowSettings = false
+    var isShowSettings = false
     
     func showSettings() {
-        isshowSettings = true
+        isShowSettings = true
     }
 }

@@ -27,6 +27,6 @@ class SearchPresenterTests: XCTestCase {
 
     func testShowSettings() {
         presenter.showSettings()
-        XCTAssertTrue((presenter.router as! SearchRouterMock).isshowSettings)
+        XCTAssertTrue((presenter.router as! SearchRouterMock).isShowSettings)
     }
 }

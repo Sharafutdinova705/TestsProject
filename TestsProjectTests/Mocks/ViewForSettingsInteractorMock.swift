@@ -12,9 +12,9 @@ import UIKit
 
 class ViewForSettingsInteractorMock: UIViewController, SettingsViewInput {
     
-    var isupdateSettingsInVC = false
+    var isUpdateSettingsInVC = false
     
     func updateSettingsInVC(settings: Settings) {
-        isupdateSettingsInVC = true
+        isUpdateSettingsInVC = true
     }
 }

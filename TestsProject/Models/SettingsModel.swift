@@ -12,7 +12,7 @@ import RealmSwift
 @objcMembers
 class SettingsModel: Object {
     
-    dynamic var id = 0
+    dynamic var id = NumberConstants.zero
     dynamic var typeOfMedia = String()
     dynamic var countOfResult = Int()
     dynamic var kindOfDevice = String()

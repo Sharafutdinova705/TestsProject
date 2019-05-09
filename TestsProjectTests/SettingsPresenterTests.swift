@@ -23,20 +23,19 @@ class SettingsPresenterTests: XCTestCase {
     
     func testsaveSettings() {
         presenter.interactor = SettingsInteractorMock()
-        presenter.saveSettings(settings: Settings(typeOfMedia: "music", countOfResult: 100, kindOfDevice: "iphone"))
-        XCTAssertTrue((presenter.interactor as! SettingsInteractorMock).issaveSettings)
+        presenter.saveSettings(settings: Settings(typeOfMedia: TypeOfMedia.music, countOfResult: NumberConstants.hundred, kindOfDevice: Device.iphone.lowercased()))
+        XCTAssertTrue((presenter.interactor as! SettingsInteractorMock).isSaveSettings)
     }
     
     func testobtainSettings() {
         presenter.interactor = SettingsInteractorMock()
         presenter.obtainSettings()
-        XCTAssertTrue((presenter.interactor as! SettingsInteractorMock).isobtainSettings)
+        XCTAssertTrue((presenter.interactor as! SettingsInteractorMock).isObtainSettings)
     }
     
     func testupdateSettingsInVC() {
         presenter.view = ViewForSettingsInteractorMock()
-        presenter.updateSettingsInVC(settings: Settings(typeOfMedia: "music", countOfResult: 100, kindOfDevice: "iphone"))
-        XCTAssertTrue((presenter.view as! ViewForSettingsInteractorMock).isupdateSettingsInVC)
+        presenter.updateSettingsInVC(settings: Settings(typeOfMedia: TypeOfMedia.music, countOfResult: NumberConstants.hundred, kindOfDevice: Device.iphone.lowercased()))
+        XCTAssertTrue((presenter.view as! ViewForSettingsInteractorMock).isUpdateSettingsInVC)
     }
-    
 }

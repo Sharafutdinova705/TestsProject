@@ -13,5 +13,5 @@ protocol SearchViewInput: AnyObject {
     /// обновление настроек
     ///
     /// - Parameter settings: настройки
-    func updateSettings(settings: Settings)
+    func updateSettings(_ settings: Settings)
 }

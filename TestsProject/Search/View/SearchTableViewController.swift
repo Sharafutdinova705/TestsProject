@@ -14,7 +14,7 @@ class SearchTableViewController: UITableViewController, SearchViewInput {
 
     var output: SearchViewOutput!
     let searchController = UISearchController(searchResultsController: nil)
-    var settings: Settings = Settings(typeOfMedia: "music", countOfResult: 100, kindOfDevice: "iphone")
+    var settings: Settings = Settings(typeOfMedia: TypeOfMedia.music, countOfResult: NumberConstants.hundred, kindOfDevice: Device.iphone.lowercased())
     var foundedItems: [FoundedItem] = []
     var searchBarIsEmpty: Bool {
         guard let text = searchController.searchBar.text else { return false }
@@ -42,28 +42,19 @@ class SearchTableViewController: UITableViewController, SearchViewInput {
         
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.placeholder = AllConstants.search
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }
     
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-
-        return 1
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isFiltering {
-            return foundedItems.count
-        }
-        return 0
+        return isFiltering ? foundedItems.count : NumberConstants.zero
     }
 
-    
      override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SearchTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: AllConstants.cell, for: indexPath) as! SearchTableViewCell
         
         if isFiltering {
             let item = foundedItems[indexPath.row]
@@ -81,7 +72,6 @@ class SearchTableViewController: UITableViewController, SearchViewInput {
         let item = foundedItems[indexPath.row]
         let svc = SFSafariViewController(url: URL(string: item.url)!)
         self.present(svc, animated: true, completion: nil)
-        
     }
 
     //MARK: - SearchViewInput
@@ -90,7 +80,7 @@ class SearchTableViewController: UITableViewController, SearchViewInput {
         output.showSettings()
     }
     
-    func updateSettings(settings: Settings) {
+    func updateSettings(_ settings: Settings) {
         
         self.settings = settings
         self.tableView.reloadData()
@@ -108,9 +98,9 @@ extension SearchTableViewController: UISearchResultsUpdating {
         
         apimanager.fetchResultWith(term: searchController.searchBar.text!, settings: settings) { (result) in
             switch result {
-            case .Success(let foundedItem):
+            case .success(let foundedItem):
                 self.foundedItems = foundedItem
-            case .Failure(let error):
+            case .failure(let error):
                 print(error.localizedDescription)
             }
             

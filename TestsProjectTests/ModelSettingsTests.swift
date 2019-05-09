@@ -14,7 +14,7 @@ class ModelSettingsTests: XCTestCase {
     var settings: Settings!
     
     override func setUp() {
-        settings = Settings(typeOfMedia: "", countOfResult: 0, kindOfDevice: "")
+        settings = Settings(typeOfMedia: AllConstants.empty, countOfResult: 0, kindOfDevice: AllConstants.empty)
     }
 
     override func tearDown() {
@@ -23,7 +23,7 @@ class ModelSettingsTests: XCTestCase {
 
     func testExample() {
         
-        settings = Settings(typeOfMedia: "music", countOfResult: 100, kindOfDevice: "iphone")
-        XCTAssertEqual(settings.typeOfMedia, "music")
+        settings = Settings(typeOfMedia: TypeOfMedia.music, countOfResult: NumberConstants.hundred, kindOfDevice: Device.iphone.lowercased())
+        XCTAssertEqual(settings.typeOfMedia, TypeOfMedia.music)
     }
 }

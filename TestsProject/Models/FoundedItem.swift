@@ -38,63 +38,63 @@ extension FoundedItem: JSONDecodable {
     /// - Parameter JSON: json в виде словаря
     init?(JSON: [String:AnyObject]) {
         
-        if let titleLabel = JSON["trackName"] as? String {
+        if let titleLabel = JSON[AllConstants.trackName] as? String {
             self.titleLabel = titleLabel
         } else {
-            self.titleLabel = ""
+            self.titleLabel = AllConstants.empty
         }
         
-        if let authorLabel = JSON["artistName"] as? String  {
+        if let authorLabel = JSON[AllConstants.artistName] as? String  {
             self.authorLabel = authorLabel
         } else {
-            self.authorLabel = ""
+            self.authorLabel = AllConstants.empty
         }
         
-        if let descriptionLabel = JSON["description"] as? String  {
+        if let descriptionLabel = JSON[AllConstants.description] as? String  {
             self.descriptionLabel = descriptionLabel
         } else {
-            self.descriptionLabel = ""
+            self.descriptionLabel = AllConstants.empty
         }
         
-        if let priceLabel = JSON["formattedPricet"] as? String  {
+        if let priceLabel = JSON[AllConstants.formattedPricet] as? String  {
             self.priceLabel = priceLabel
-        } else if let price = JSON["price"] as? String {
+        } else if let price = JSON[AllConstants.price] as? String {
             self.priceLabel = price
         } else {
-            self.priceLabel = ""
+            self.priceLabel = AllConstants.empty
         }
         
-        if let itemImageView = JSON["artworkUrl60"] as? String  {
+        if let itemImageView = JSON[AllConstants.artworkUrl60] as? String  {
             self.itemImageView = itemImageView
         } else {
-            self.itemImageView = ""
+            self.itemImageView = AllConstants.empty
         }
         
-        if let typeOfMedia = JSON["wrapperType"] as? String  {
+        if let typeOfMedia = JSON[AllConstants.wrapperType] as? String  {
             self.typeOfMedia = typeOfMedia
         } else {
-            self.typeOfMedia = ""
+            self.typeOfMedia = AllConstants.empty
         }
         
-        if let url = JSON["trackViewUrl"] as? String  {
+        if let url = JSON[AllConstants.trackViewUrl] as? String  {
             self.url = url
         } else {
-            self.url = ""
+            self.url = AllConstants.empty
         }
         
-        var kindOfDevice = ""
+        var kindOfDevice = AllConstants.empty
         
-        if JSON["wrapperType"] as? String == "software" && JSON["supportedDevices"] as? [String] != nil {
+        if JSON[AllConstants.wrapperType] as? String == TypeOfMedia.software && JSON[AllConstants.supportedDevices] as? [String] != nil {
             
-            if let supportedDevices = JSON["supportedDevices"] as? [String] {
+            if let supportedDevices = JSON[AllConstants.supportedDevices] as? [String] {
                 for device in supportedDevices {
                     
-                    if device.lowercased().contains("ipad") && device.lowercased().contains("iphone") {
-                        kindOfDevice = "all"
-                    } else if device.lowercased().contains("ipad") && !device.lowercased().contains("iphone") {
-                        kindOfDevice = "iPad"
-                    } else if !device.lowercased().contains("ipad") && device.lowercased().contains("iphone") {
-                        kindOfDevice = "iPhone"
+                    if device.lowercased().contains(Device.ipad.lowercased()) && device.lowercased().contains(Device.iphone.lowercased()) {
+                        kindOfDevice = Device.all
+                    } else if device.lowercased().contains(Device.ipad.lowercased()) && !device.lowercased().contains(Device.iphone.lowercased()) {
+                        kindOfDevice = Device.ipad
+                    } else if !device.lowercased().contains(Device.ipad.lowercased()) && device.lowercased().contains(Device.iphone.lowercased()) {
+                        kindOfDevice = Device.iphone
                     }
                 }
             }

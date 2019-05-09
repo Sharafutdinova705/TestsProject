@@ -23,8 +23,8 @@ protocol FinalURLPoint {
 }
 
 enum APIResult<T> {
-    case Success([T])
-    case Failure(Error)
+    case success([T])
+    case failure(Error)
 }
 protocol APIManagerProtocol {
     
@@ -55,7 +55,7 @@ extension APIManagerProtocol {
                 }
             } else {
                 switch HTTPResponse.statusCode {
-                case 200:
+                case NumberConstants.twoHundred:
                     do {
                         let json = try JSONSerialization.jsonObject(with: data!, options: []) as? [String : AnyObject]
                         completionHandler(json, HTTPResponse, nil)
@@ -84,13 +84,13 @@ extension APIManagerProtocol {
                 
                 guard let json = json else {
                     if let error = error {
-                        completionHandler(.Failure(error))
+                        completionHandler(.failure(error))
                     }
                     return
                 }
                 
                 if let value = parse(json) {
-                    completionHandler(.Success(value))
+                    completionHandler(.success(value))
                 } else {
                     return
                 }

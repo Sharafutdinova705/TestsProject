@@ -14,7 +14,7 @@ class SettingsViewController: UIViewController, SettingsViewInput {
     @IBOutlet weak var typeOfMediaSegmentedControl: UISegmentedControl!
     @IBOutlet weak var countOfResultTextField: UITextField!
     @IBOutlet weak var kindOfDeviceSegmentedControl: UISegmentedControl!
-    var settings: Settings = Settings(typeOfMedia: "", countOfResult: 0, kindOfDevice: "")
+    var settings: Settings = Settings(typeOfMedia: AllConstants.empty, countOfResult: NumberConstants.zero, kindOfDevice: AllConstants.empty)
     
     //MARK: - Методы
     
@@ -29,31 +29,31 @@ class SettingsViewController: UIViewController, SettingsViewInput {
         self.settings = settings
         
         switch settings.typeOfMedia {
-        case "music":
-            typeOfMediaSegmentedControl.selectedSegmentIndex = 0
-        case "movie":
-            typeOfMediaSegmentedControl.selectedSegmentIndex = 1
-        case "tvShow":
-            typeOfMediaSegmentedControl.selectedSegmentIndex = 2
-        case "podcast":
-            typeOfMediaSegmentedControl.selectedSegmentIndex = 3
-        case "audiobook":
-            typeOfMediaSegmentedControl.selectedSegmentIndex = 4
-        case "software":
-            typeOfMediaSegmentedControl.selectedSegmentIndex = 5
+        case TypeOfMedia.music:
+            typeOfMediaSegmentedControl.selectedSegmentIndex = NumberConstants.zero
+        case TypeOfMedia.movie:
+            typeOfMediaSegmentedControl.selectedSegmentIndex = NumberConstants.one
+        case TypeOfMedia.tvShow:
+            typeOfMediaSegmentedControl.selectedSegmentIndex = NumberConstants.two
+        case TypeOfMedia.podcast:
+            typeOfMediaSegmentedControl.selectedSegmentIndex = NumberConstants.three
+        case TypeOfMedia.audiobook:
+            typeOfMediaSegmentedControl.selectedSegmentIndex = NumberConstants.four
+        case TypeOfMedia.software:
+            typeOfMediaSegmentedControl.selectedSegmentIndex = NumberConstants.five
         default:
-            typeOfMediaSegmentedControl.selectedSegmentIndex = 0
+            typeOfMediaSegmentedControl.selectedSegmentIndex = NumberConstants.zero
         }
         
         countOfResultTextField.text = String(settings.countOfResult)
         
         switch settings.kindOfDevice {
-        case "iphone":
-            kindOfDeviceSegmentedControl.selectedSegmentIndex = 0
-        case "ipad":
-            kindOfDeviceSegmentedControl.selectedSegmentIndex = 1
+        case Device.iphone.lowercased():
+            kindOfDeviceSegmentedControl.selectedSegmentIndex = NumberConstants.zero
+        case Device.ipad.lowercased():
+            kindOfDeviceSegmentedControl.selectedSegmentIndex = NumberConstants.one
         default:
-            kindOfDeviceSegmentedControl.selectedSegmentIndex = 0
+            kindOfDeviceSegmentedControl.selectedSegmentIndex = NumberConstants.zero
         }
     }
     
@@ -69,20 +69,20 @@ class SettingsViewController: UIViewController, SettingsViewInput {
     func updateTypeOfMedia() {
         
         switch typeOfMediaSegmentedControl.selectedSegmentIndex {
-        case 0:
-            settings.typeOfMedia = "music"
-        case 1:
-            settings.typeOfMedia = "movie"
-        case 2:
-            settings.typeOfMedia = "tvShow"
-        case 3:
-            settings.typeOfMedia = "podcast"
-        case 4:
-            settings.typeOfMedia = "audiobook"
-        case 5:
-            settings.typeOfMedia = "software"
+        case NumberConstants.zero:
+            settings.typeOfMedia = TypeOfMedia.music
+        case NumberConstants.one:
+            settings.typeOfMedia = TypeOfMedia.movie
+        case NumberConstants.two:
+            settings.typeOfMedia = TypeOfMedia.tvShow
+        case NumberConstants.three:
+            settings.typeOfMedia = TypeOfMedia.podcast
+        case NumberConstants.four:
+            settings.typeOfMedia = TypeOfMedia.audiobook
+        case NumberConstants.five:
+            settings.typeOfMedia = TypeOfMedia.software
         default:
-            settings.typeOfMedia = "music"
+            settings.typeOfMedia = TypeOfMedia.music
         }
     }
     
@@ -91,10 +91,10 @@ class SettingsViewController: UIViewController, SettingsViewInput {
         
         if Int(countOfResultTextField.text!) != nil {
             
-            if Int(countOfResultTextField.text!)! > 200 {
-                settings.countOfResult = 200
-            } else if Int(countOfResultTextField.text!)! < 1 {
-                settings.countOfResult = 1
+            if Int(countOfResultTextField.text!)! > NumberConstants.twoHundred {
+                settings.countOfResult = NumberConstants.twoHundred
+            } else if Int(countOfResultTextField.text!)! < NumberConstants.one {
+                settings.countOfResult = NumberConstants.one
             } else {
                 settings.countOfResult = Int(countOfResultTextField.text!)!
             }
@@ -105,12 +105,12 @@ class SettingsViewController: UIViewController, SettingsViewInput {
     func updateDeviceKind() {
         
         switch kindOfDeviceSegmentedControl.selectedSegmentIndex {
-        case 0:
-            settings.kindOfDevice = "iphone"
-        case 1:
-            settings.kindOfDevice = "ipad"
+        case NumberConstants.zero:
+            settings.kindOfDevice = Device.iphone.lowercased()
+        case NumberConstants.one:
+            settings.kindOfDevice = Device.ipad.lowercased()
         default:
-            settings.kindOfDevice = "iphone"
+            settings.kindOfDevice = Device.iphone.lowercased()
         }
     }
     

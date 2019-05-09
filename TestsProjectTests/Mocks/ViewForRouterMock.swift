@@ -12,10 +12,10 @@ import UIKit
 
 class ViewForRouterMock: UIViewController {
 
-    var isshowDetailViewController = false
+    var isShowDetailViewController = false
     
     override func showDetailViewController(_ vc: UIViewController, sender: Any?) {
-        isshowDetailViewController = true
+        isShowDetailViewController = true
     }
 
 }

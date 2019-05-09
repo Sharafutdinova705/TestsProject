@@ -14,8 +14,8 @@ class SearchRouter: SearchRouterInput {
     
     func showSettings() {
         
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = mainStoryboard.instantiateViewController(withIdentifier: "settings") as! SettingsViewController
+        let mainStoryboard = UIStoryboard(name: AllConstants.main, bundle: nil)
+        let vc = mainStoryboard.instantiateViewController(withIdentifier: AllConstants.settings) as! SettingsViewController
         
         view.showDetailViewController(vc, sender: nil)
     }

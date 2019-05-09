@@ -21,10 +21,10 @@ class DataManagerMock: DataManagerProtocol {
     
     func obtainItems() -> SettingsModel? {
         let settings = SettingsModel()
-        settings.id = 0
-        settings.countOfResult = 100
-        settings.kindOfDevice = "ipad"
-        settings.typeOfMedia = "music"
+        settings.id = NumberConstants.zero
+        settings.countOfResult = NumberConstants.hundred
+        settings.kindOfDevice = Device.ipad
+        settings.typeOfMedia = TypeOfMedia.music
         return settings
     }
     

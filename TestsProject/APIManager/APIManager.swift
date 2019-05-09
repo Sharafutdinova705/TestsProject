@@ -13,7 +13,7 @@ import Foundation
 /// - Current: кейсом состоящим из базового url и пути
 enum RequestType: FinalURLPoint {
     
-    case Current(term: String, settings: Settings)
+    case current(term: String, settings: Settings)
     
     var baseURL: URL {
         return URL(string: "https://itunes.apple.com/search?")!
@@ -23,7 +23,7 @@ enum RequestType: FinalURLPoint {
         
         switch self {
         
-        case .Current(let term, let settings):
+        case .current(let term, let settings):
             let editedterm = term.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!.lowercased()
             return "term=\(editedterm)&media=\(settings.typeOfMedia)&limit=\(settings.countOfResult)"
         }
@@ -60,15 +60,15 @@ class APIManager: APIManagerProtocol {
     ///   - completionHandler: completionHandler
     func fetchResultWith(term: String, settings: Settings, completionHandler: @escaping (APIResult<FoundedItem>) -> Void) {
         
-        let request = RequestType.Current(term: term, settings: settings).request
+        let request = RequestType.current(term: term, settings: settings).request
         
         fetch(request: request, parse: { (json) -> [FoundedItem]? in
-            if let dictionary = json["results"] as? [[String: AnyObject]] {
+            if let dictionary = json[AllConstants.results] as? [[String: AnyObject]] {
                 var founded: [FoundedItem] = []
                 for item in dictionary {
-                    if settings.kindOfDevice == "ipad" && FoundedItem(JSON: (item))?.kindOfDevice.lowercased() == "ipad" {
+                    if settings.kindOfDevice == Device.ipad.lowercased() && FoundedItem(JSON: (item))?.kindOfDevice.lowercased() == Device.ipad.lowercased() {
                         founded.append(FoundedItem(JSON: (item))!)
-                    } else if settings.kindOfDevice.lowercased() != "ipad" {
+                    } else if settings.kindOfDevice.lowercased() != Device.ipad.lowercased() {
                         founded.append(FoundedItem(JSON: (item))!)
                     }
                 }

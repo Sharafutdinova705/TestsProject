@@ -25,6 +25,6 @@ class SearchPresenter: SearchViewOutput, SearchInteractorOutput {
     }
     
     func updateSettings(settings: Settings) {
-        view.updateSettings(settings: settings)
+        view.updateSettings(settings)
     }
 }

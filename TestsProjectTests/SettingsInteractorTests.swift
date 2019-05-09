@@ -23,7 +23,7 @@ class SettingsInteractorTests: XCTestCase {
 
     func testSave() {
         interactor.dataManager = DataManagerMock()
-        interactor.saveSettings(settings: Settings(typeOfMedia: "music", countOfResult: 100, kindOfDevice: "iphone"))
+        interactor.saveSettings(settings: Settings(typeOfMedia: TypeOfMedia.music, countOfResult: NumberConstants.hundred, kindOfDevice: Device.iphone.lowercased()))
         XCTAssertTrue((interactor.dataManager as! DataManagerMock).isUpdated)
     }
     

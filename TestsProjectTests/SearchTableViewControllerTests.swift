@@ -23,12 +23,12 @@ class SearchTableViewControllerTests: XCTestCase {
 
     func testshowSettings() {
         vc.output = SearchPresenterMock()
-        vc.showSettings("")
+        vc.showSettings(AllConstants.empty)
         XCTAssertTrue((vc.output as! SearchPresenterMock).isshowSettings)
     }
     
     func testSearchBarTextNotEmpty() {
-        vc.searchController.searchBar.text = ""
+        vc.searchController.searchBar.text = AllConstants.empty
         let searchBarIsEmpty = vc.searchBarIsEmpty
         XCTAssertTrue(searchBarIsEmpty)
     }

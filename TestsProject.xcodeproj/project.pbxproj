@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		190C2EB2896939B37DA61AA9 /* Pods_TestsProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F659134CC24FD45CEB8C9E3 /* Pods_TestsProject.framework */; };
+		5294690622840DEC0039F3E5 /* AllEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5294690522840DEC0039F3E5 /* AllEnums.swift */; };
 		52A419A3224C865B00B7EDC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A419A2224C865B00B7EDC6 /* AppDelegate.swift */; };
 		52A419A8224C865B00B7EDC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52A419A6224C865B00B7EDC6 /* Main.storyboard */; };
 		52A419AD224C865E00B7EDC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52A419AB224C865E00B7EDC6 /* LaunchScreen.storyboard */; };
@@ -80,6 +81,7 @@
 
 /* Begin PBXFileReference section */
 		2F659134CC24FD45CEB8C9E3 /* Pods_TestsProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestsProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5294690522840DEC0039F3E5 /* AllEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllEnums.swift; sourceTree = "<group>"; };
 		52A4199F224C865B00B7EDC6 /* TestsProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestsProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A419A2224C865B00B7EDC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52A419A7224C865B00B7EDC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 		52A419A1224C865B00B7EDC6 /* TestsProject */ = {
 			isa = PBXGroup;
 			children = (
+				5294690522840DEC0039F3E5 /* AllEnums.swift */,
 				52EC6B17224DE2E300B8A7BE /* DataManager */,
 				52EC6BAC224E05ED00B8A7BE /* Models */,
 				52EC6BA5224DF46900B8A7BE /* APIManager */,
@@ -591,6 +594,7 @@
 				52EC6B9E224DE6BE00B8A7BE /* SettingsModuleConfigurator.swift in Sources */,
 				52EC6B28224DE2E300B8A7BE /* DataManagerProtocol.swift in Sources */,
 				52EC6BA0224DE6BE00B8A7BE /* SettingsInteractor.swift in Sources */,
+				5294690622840DEC0039F3E5 /* AllEnums.swift in Sources */,
 				52EC6BB8224E871800B8A7BE /* Settings.swift in Sources */,
 				52EC6B80224DE68700B8A7BE /* SearchViewInput.swift in Sources */,
 				52EC6B7F224DE68700B8A7BE /* SearchViewOutput.swift in Sources */,

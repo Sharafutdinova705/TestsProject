@@ -24,6 +24,6 @@ class SearchRouterTests: XCTestCase {
     func testshowSettings() {
         router.view = ViewForRouterMock()
         router.showSettings()
-        XCTAssertTrue((router.view as! ViewForRouterMock).isshowDetailViewController)
+        XCTAssertTrue((router.view as! ViewForRouterMock).isShowDetailViewController)
     }
 }
